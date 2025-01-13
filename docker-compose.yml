@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "5050:5050"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/crudapp
+      - JWT_SECRET=mysecretkey
+    depends_on:
+      - mongo
+    volumes:
+      - .:/app
+    restart: always
+
+  mongo:
+    image: mongo:latest
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+    restart: always
+
+volumes:
+  mongo_data:

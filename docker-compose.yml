@@ -6,7 +6,7 @@ services:
     ports:
       - "5050:5050"
     environment:
-      - MONGO_URI=mongodb://mongo:27017/crudapp
+      - MONGO_URI=mongodb+srv://fauziardiansyah302:MPJ5ug9Uic7G5kSt@server.s2mwu.mongodb.net/?retryWrites=true&w=majority&appName=server
       - JWT_SECRET=mysecretkey
     depends_on:
       - mongo
